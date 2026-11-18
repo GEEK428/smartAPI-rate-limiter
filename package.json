@@ -1,0 +1,38 @@
+{
+  "name": "smart-api-rate-limiter",
+  "version": "1.0.0",
+  "description": "Custom Express API rate limiter using the Token Bucket algorithm with lazy refill and per-IP buckets.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "jest --runInBand",
+    "load:login:small": "autocannon -c 10 -d 10 http://localhost:3000/login",
+    "load:login:medium": "autocannon -c 50 -d 20 http://localhost:3000/login",
+    "load:login:large": "autocannon -c 100 -d 20 http://localhost:3000/login"
+  },
+  "keywords": [
+    "rate-limiter",
+    "token-bucket",
+    "express",
+    "nodejs",
+    "middleware"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "autocannon": "^7.15.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/src/tests/**/*.test.js"
+    ]
+  }
+}
